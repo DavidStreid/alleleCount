@@ -25,7 +25,7 @@
 #include <ctype.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include <htslib/sam.h>
+#include </opt/homebrew/Cellar/htslib/1.16/include/htslib/sam.h>
 
 typedef struct loci_stats{
 	int *base_counts;

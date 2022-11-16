@@ -26,14 +26,7 @@ echo $INST_PATH
 # get current directory
 INIT_DIR=`pwd`
 
-CPU=`grep -c ^processor /proc/cpuinfo`
-if [ $? -eq 0 ]; then
-  if [ "$CPU" -gt "6" ]; then
-    CPU=6
-  fi
-else
-  CPU=1
-fi
+CPU=6
 echo "Max compilation CPUs set to $CPU"
 
 SETUP_DIR=$INIT_DIR/install_tmp

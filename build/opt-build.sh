@@ -26,14 +26,7 @@ echo $INST_PATH
 # get current directory
 INIT_DIR=`pwd`
 
-CPU=`grep -c ^processor /proc/cpuinfo`
-if [ $? -eq 0 ]; then
-  if [ "$CPU" -gt "6" ]; then
-    CPU=6
-  fi
-else
-  CPU=1
-fi
+CPU=6
 echo "Max compilation CPUs set to $CPU"
 
 SETUP_DIR=$INIT_DIR/install_tmp
@@ -94,7 +87,7 @@ if [ ! -e $SETUP_DIR/htslib.success ]; then
   cd htslib
   ./configure --enable-plugins --enable-libcurl --with-libdeflate --prefix=$INST_PATH \
   CPPFLAGS="-I$INST_PATH/include" \
-  LDFLAGS="-L${INST_PATH}/lib -Wl,-R${INST_PATH}/lib"
+  LDFLAGS="-L${INST_PATH}/lib -L/opt/homebrew/Cellar/htslib/1.16/include/htslib -Wl,-R${INST_PATH}/lib"
   make -j$CPU
   make install
   cd $SETUP_DIR

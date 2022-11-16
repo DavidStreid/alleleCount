@@ -25,7 +25,7 @@
 #include <dbg.h>
 #include <assert.h>
 #include <limits.h>
-#include <htslib/cram.h>
+#include </opt/homebrew/Cellar/htslib/1.16/include/htslib/cram.h>
 #include "khash.h"
 
 #define PO10_LIMIT (INT_MAX/10)
